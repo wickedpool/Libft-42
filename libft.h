@@ -6,7 +6,7 @@
 /*   By: thgiraud <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/06 14:35:37 by thgiraud          #+#    #+#             */
-/*   Updated: 2016/11/18 13:25:27 by thgiraud         ###   ########.fr       */
+/*   Updated: 2016/11/24 17:48:42 by thgiraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,20 @@ void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+#endif
+
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+
+typedef struct		s_line
+{
+	char			*str;
+	int				newline;
+}					t_line
+
+int					get_next_line(const int fd, char **line);
+
+# define BUFF_SIZE 100
 
 #endif
