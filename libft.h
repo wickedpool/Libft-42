@@ -6,7 +6,7 @@
 /*   By: thgiraud <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/06 14:35:37 by thgiraud          #+#    #+#             */
-/*   Updated: 2016/11/26 15:23:22 by thgiraud         ###   ########.fr       */
+/*   Updated: 2016/11/26 15:27:27 by thgiraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ typedef struct		s_line
 {
 	char			*str;
 	int				newline;
-}					t_line
+}					t_line;
 
 int					get_next_line(const int fd, char **line);
 
