@@ -6,7 +6,7 @@
 /*   By: thgiraud <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/06 14:35:37 by thgiraud          #+#    #+#             */
-/*   Updated: 2017/01/06 14:29:57 by thgiraud         ###   ########.fr       */
+/*   Updated: 2017/02/15 18:20:02 by thgiraud         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,14 +95,15 @@ void				ft_foreach(int *tab, int length, void (*f)(int));
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-typedef struct		s_line
-{
-	char			*str;
-	int				newline;
-}					t_line;
+# include <sys/types.h>
+# include <sys/uio.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <stdlib.h>
+# define BUFF_SIZE 10
+# define ENDL '\n'
+# define END '\0'
 
 int					get_next_line(const int fd, char **line);
-
-# define BUFF_SIZE 100
 
 #endif

@@ -6,11 +6,16 @@
 #    By: thgiraud <thgiraud@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/09 11:25:59 by thgiraud          #+#    #+#              #
-#    Updated: 2017/02/13 15:22:58 by thgiraud         ###   ########.fr        #
+#    Updated: 2017/02/15 18:29:41 by thgiraud         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+
+NOC=\033[0m
+OKC=\033[32m
+ERC=\033[31m
+WAC=\033[33m
 
 GCFLAGS = gcc -Wall -Wextra -Werror
 
@@ -31,7 +36,7 @@ SRCS = ./ft_atoi.c ./ft_memccpy.c ./ft_strcat.c ./ft_strncpy.c ./ft_bzero.c \
 	   ./ft_putnbr.c ./ft_strlen.c ./ft_toupper.c ./ft_lstiter.c \
 	   ./ft_putnbr_fd.c ./ft_strmap.c ft_lstmap.c ./ft_putstr.c \
 	   ./ft_strmapi.c ./ft_lstnew.c ./ft_putstr_fd.c ./ft_strncat.c \
-	   ./ft_memalloc.c ./ft_range.c ./ft_strncmp.c
+	   ./ft_memalloc.c ./ft_range.c ./ft_strncmp.c ./get_next_line.c
 
 OBJS = ./ft_atoi.o ./ft_memccpy.o ./ft_strcat.o ./ft_strncpy.o ./ft_bzero.o \
 	   ./ft_memchr.o ./ft_strchr.o ./ft_strnequ.o ./ft_foreach.o \
@@ -48,21 +53,27 @@ OBJS = ./ft_atoi.o ./ft_memccpy.o ./ft_strcat.o ./ft_strncpy.o ./ft_bzero.o \
 	   ./ft_putnbr.o ./ft_strlen.o ./ft_toupper.o ./ft_lstiter.o \
 	   ./ft_putnbr_fd.o ./ft_strmap.o ft_lstmap.o ./ft_putstr.o \
 	   ./ft_strmapi.o ./ft_lstnew.o ./ft_putstr_fd.o ./ft_strncat.o \
-	   ./ft_memalloc.o ./ft_range.o ./ft_strncmp.o
+	   ./ft_memalloc.o ./ft_range.o ./ft_strncmp.o ./get_next_line.o
 
 OBJ = $(SCRS:.c=.o)
 
 all: $(NAME)
 
 $(NAME):
-			$(GCFLAGS) -c -I $(INC) $(SRCS)
-			ar rc $(NAME) $(OBJS)
+			@$(GCFLAGS) -c -I $(INC) $(SRCS)
+			@ar rc $(NAME) $(OBJS)
+			@echo "$(OKC)LIBFT:\t\tyour libft is ready$(NOC)"
+			@echo "========================"
 
 clean:
-			rm -f $(OBJS)
+			@rm -f $(OBJS)
+			@echo "$(WAC)LIBFT:\t\tRemoving OBJ path$(NOC)"
+			@echo "========================"
 
 fclean: clean
-			rm -f $(NAME)
+			@rm -f $(NAME)
+			@echo "$(WAC)LIBFT:\t\tRemoving libft executable$(NOC)"
+			@echo "========================"
 
 re: fclean all
 
